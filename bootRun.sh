@@ -14,5 +14,5 @@ rm -rf .gradle
 
 #run spring boot in background
 echo "Running gradle script to build the project..."
-cd /var/lib/jenkins/workspace/demo3
+cd /var/lib/jenkins/workspace/abcbankingonline
 nohup gradle bootRun >> /tmp/bootRun.log 2>&1 &
