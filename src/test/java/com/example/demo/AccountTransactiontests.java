@@ -22,7 +22,7 @@ public class AccountTransactiontests {
                 .then()
                 .assertThat()
                 .statusCode(200)
-                .body("size()", is(5));
+                .body("size()", is(2));
 
       /* get("http://localhost:9090/transactions/1")
                 .then()
