@@ -3,22 +3,29 @@ package com.example.demo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.http.HttpStatus;
 
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
-
   //  @CrossOrigin(origins="http://localhost:3000",maxAge = 3600)
+    @CrossOrigin(origins = "*", maxAge = 3600)
     @RestController
     public class UserDetailsController {
         @Autowired
         UserDetailsRepository userRepository;
 
         @GetMapping("/users")
-      public List<UserDetails> getAllUsers() {
+           public ApiResponse<List<UserDetails>> getAllUsers(){
+//            return new ApiResponse<>(HttpStatus.OK.value(), "User list fetched successfully.",userRepository.findAll());
+            return new ApiResponse<>(userRepository.findAll());
+        }
+/*      public List<UserDetails> getAllUsers() {
           return userRepository.findAll();
-      }
+      } */
+
+
 
       @GetMapping("/users/{user_id}")
       public Optional<UserDetails> getAllUsersById(@PathVariable(value = "user_id") Integer user_id) {
