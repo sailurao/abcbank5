@@ -23,7 +23,7 @@ public class UsertableTests {
                .then()
                .assertThat()
                .statusCode(200)
-               .body("size()", is(2));
+               .body("size()", is(4));
 
    }
         /*get("http://localhost:9090/users/2")
